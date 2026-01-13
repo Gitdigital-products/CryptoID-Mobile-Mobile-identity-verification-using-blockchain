@@ -1,0 +1,42 @@
+src/
+├── blockchain/
+│   ├── client.js          # Blockchain client wrapper
+│   ├── contracts/
+│   │   ├── IdentityRegistry.sol  # Main identity contract
+│   │   └── CredentialRegistry.sol # Credential management
+│   ├── resolver.js        # DID resolver
+│   └── credentialService.js
+├── identity/
+│   ├── didCreator.js      # DID creation logic
+│   ├── credentialManager.js
+│   ├── zkp/
+│   │   └── zkpModule.js   # ZKP placeholder
+│   └── verification.js
+├── wallet/
+│   ├── generator.js       # Mnemonic & key generation
+│   ├── secureEnclave.js   # Secure storage abstraction
+│   ├── signer.js          # Transaction signing
+│   └── backupManager.js
+├── ui/
+│   ├── components/
+│   ├── screens/
+│   │   ├── Onboarding.js
+│   │   ├── IdentityWizard.js
+│   │   ├── CredentialViewer.js
+│   │   ├── Scanner.js
+│   │   └── Settings.js
+│   └── styles/
+├── services/
+│   ├── qrService.js       # QR code generation/parsing
+│   ├── vault.js           # Secure local vault
+│   ├── biometrics.js
+│   └── network.js
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   └── contracts/
+└── App.js                 # Main app entry
+
+did-documents/             # Local DID document storage
+config/                    # Configuration files
+.github/workflows/         # CI/CD pipelines
