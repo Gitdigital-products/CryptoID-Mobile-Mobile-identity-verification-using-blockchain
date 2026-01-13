@@ -1,0 +1,41 @@
+import { ethers } from 'ethers';
+import * as SecureStore from 'expo-secure-store';
+
+export class DIDCreator {
+  static async createDID(walletAddress, network = 'mainnet') {
+    // Create DID using Ethereum method (did:ethr)
+    const did = `did:ethr:${network}:${walletAddress.toLowerCase()}`;
+    
+    // Generate DID Document
+    const didDocument = {
+      "@context": "https://www.w3.org/ns/did/v1",
+      "id": did,
+      "verificationMethod": [{
+        "id": `${did}#keys-1`,
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "controller": did,
+        "publicKeyHex": walletAddress
+      }],
+      "authentication": [`${did}#keys-1`],
+      "created": new Date().toISOString(),
+      "updated": new Date().toISOString()
+    };
+    
+    // Store locally in secure vault
+    await SecureStore.setItemAsync(`did_${walletAddress}`, 
+      JSON.stringify(didDocument));
+    
+    // Register on blockchain
+    await this.registerOnBlockchain(did, walletAddress);
+    
+    return { did, didDocument };
+  }
+  
+  static async registerOnBlockchain(did, walletAddress) {
+    // Implementation for blockchain registration
+    const contract = await this.getIdentityContract();
+    const tx = await contract.registerIdentity(walletAddress, did);
+    await tx.wait();
+    return tx.hash;
+  }
+}
