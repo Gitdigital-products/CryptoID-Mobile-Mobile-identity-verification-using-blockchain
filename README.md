@@ -1,3 +1,11 @@
+<div align="center">
+
+[![Identity Standard](https://img.shields.io/badge/Identity-W3C_DID-blueviolet?style=for-the-badge&logo=w3c)](https://www.w3.org/TR/did-core/)
+[![Privacy](https://img.shields.io/badge/Privacy-ZKP_Enabled-black?style=for-the-badge&logo=opsgenie)](https://solana.com/news/privacy-on-solana)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/Gitdigital-products/CryptoID-Mobile-Mobile-identity-verification-using-blockchain/ci.yml?style=for-the-badge&logo=github&color=blue)](https://github.com/Gitdigital-products/CryptoID-Mobile-Mobile-identity-verification-using-blockchain/actions)
+
+</div>
+
 <!-- Security Badges -->
 ![Security Foundational](https://img.shields.io/badge/security-foundational-blue)
 ![Security Scanning](https://img.shields.io/badge/security-scanning-active-green)
